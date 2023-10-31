@@ -1,0 +1,55 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        if (Schema::hasTable('ratings')) {
+            $this->checkColumns();
+        } else {
+            Schema::create('ratings', function (Blueprint $table) {
+                $table->id();
+                $table->integer('rating');
+                $table->string('name');
+                $table->softDeletes();
+            });
+        }
+    }
+
+    private function checkColumns()
+    {
+        if (!Schema::hasColumn('ratings', 'rating')) {
+            Schema::table('ratings', function (Blueprint $table) {
+                $table->integer('rating');
+            });
+        }
+        if (!Schema::hasColumn('ratings', 'name')) {
+            Schema::table('ratings', function (Blueprint $table) {
+                $table->string('name');
+            });
+        }
+        if (!Schema::hasColumn('ratings', 'deleted_at')) {
+            Schema::table('ratings', function (Blueprint $table) {
+                $table->softDeletes();
+            });
+        }
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('ratings');
+    }
+};
