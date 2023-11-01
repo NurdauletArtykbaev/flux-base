@@ -60,20 +60,20 @@ class FluxBaseServiceProvider extends ServiceProvider
     {
 
         $this->publishes([
-            __DIR__ . '/../database/migrations/check_type_organizations.php.stub' => $this->getMigrationFileName(0,'check_type_organizations.php'),
-            __DIR__ . '/../database/migrations/check_cities_table.php.stub' => $this->getMigrationFileName(1,'check_cities_table.php'),
-            __DIR__ . '/../database/migrations/check_mobile_versions_table.php.stub' => $this->getMigrationFileName(2,'check_mobile_versions_table.php'),
-            __DIR__ . '/../database/migrations/check_rent_types_table.php.stub' => $this->getMigrationFileName(3,'check_rent_types_table.php'),
-            __DIR__ . '/../database/migrations/check_complaint_reasons_table.php.stub' => $this->getMigrationFileName(4,'check_complaint_reasons_table.php'),
-            __DIR__ . '/../database/migrations/check_users_table.php.stub' => $this->getMigrationFileName(5,'check_users_table.php'),
-            __DIR__ . '/../database/migrations/check_supports_table.php.stub' => $this->getMigrationFileName(6,'check_supports_table.php'),
-            __DIR__ . '/../database/migrations/check_banners_table.php.stub' => $this->getMigrationFileName(7,'check_banners_table.php'),
-            __DIR__ . '/../database/migrations/check_click_histories_table.php.stub' => $this->getMigrationFileName(8,'check_click_histories_table.php'),
-            __DIR__ . '/../database/migrations/check_partners_table.php.stub' => $this->getMigrationFileName(9,'check_partners_table.php'),
-            __DIR__ . '/../database/migrations/check_partner_cities_table.php.stub' => $this->getMigrationFileName(10,'check_partner_cities_table.php'),
-            __DIR__ . '/../database/migrations/check_ratings_table.php.stub' => $this->getMigrationFileName(11,'check_ratings_table.php'),
-            __DIR__ . '/../database/migrations/check_rating_messages_table.php.stub' => $this->getMigrationFileName(12,'check_rating_messages_table.php'),
-            __DIR__ . '/../database/migrations/check_reviews_table.php.stub' => $this->getMigrationFileName(13,'check_reviews_table.php'),
+            __DIR__ . '/../database/migrations/check_type_organizations.php.stub' => $this->getMigrationFileName(0,'check_flux_base_type_organizations.php'),
+            __DIR__ . '/../database/migrations/check_cities_table.php.stub' => $this->getMigrationFileName(1,'check_flux_base_cities_table.php'),
+            __DIR__ . '/../database/migrations/check_mobile_versions_table.php.stub' => $this->getMigrationFileName(2,'check_flux_base_mobile_versions_table.php'),
+            __DIR__ . '/../database/migrations/check_rent_types_table.php.stub' => $this->getMigrationFileName(3,'check_flux_base_rent_types_table.php'),
+            __DIR__ . '/../database/migrations/check_complaint_reasons_table.php.stub' => $this->getMigrationFileName(4,'check_flux_base_complaint_reasons_table.php'),
+            __DIR__ . '/../database/migrations/check_users_table.php.stub' => $this->getMigrationFileName(5,'check_flux_base_users_table.php'),
+            __DIR__ . '/../database/migrations/check_supports_table.php.stub' => $this->getMigrationFileName(6,'check_flux_base_supports_table.php'),
+            __DIR__ . '/../database/migrations/check_banners_table.php.stub' => $this->getMigrationFileName(7,'check_flux_base_banners_table.php'),
+            __DIR__ . '/../database/migrations/check_click_histories_table.php.stub' => $this->getMigrationFileName(8,'check_flux_base_click_histories_table.php'),
+            __DIR__ . '/../database/migrations/check_partners_table.php.stub' => $this->getMigrationFileName(9,'check_flux_base_partners_table.php'),
+            __DIR__ . '/../database/migrations/check_partner_cities_table.php.stub' => $this->getMigrationFileName(10,'check_flux_base_partner_cities_table.php'),
+            __DIR__ . '/../database/migrations/check_ratings_table.php.stub' => $this->getMigrationFileName(11,'check_flux_base_ratings_table.php'),
+            __DIR__ . '/../database/migrations/check_rating_messages_table.php.stub' => $this->getMigrationFileName(12,'check_flux_base_rating_messages_table.php'),
+            __DIR__ . '/../database/migrations/check_reviews_table.php.stub' => $this->getMigrationFileName(13,'check_flux_base_reviews_table.php'),
         ], 'flux-base-migrations');
     }
 
