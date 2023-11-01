@@ -56,23 +56,6 @@ class FluxBaseServiceProvider extends ServiceProvider
         }
     }
 
-    protected function publishAdminPanel()
-    {
-        if (config('flux-catalog.options.use_filament_admin_panel')) {
-            Filament::navigation(function (NavigationBuilder $builder): NavigationBuilder {
-                return $builder
-                    ->groups([
-                        NavigationGroup::make('Каталог')->items([
-                            ...BannerResource::getNavigationItems(),
-                        ]),
-                        NavigationGroup::make('Доплонительно')->items([
-                            ...CityResource::getNavigationItems(),
-                        ]),
-                    ]);
-            });
-        }
-    }
-
     protected function publishMigrations()
     {
 

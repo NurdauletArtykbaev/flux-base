@@ -1,6 +1,6 @@
 <?php
 
-namespace Nurdaulet\FluxBase\Http\Resources\v2\Review;
+namespace Nurdaulet\FluxBase\Http\Resources\Review;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
