@@ -19,7 +19,7 @@
     "staudenmeir/laravel-adjacency-list": "^1.0",
     "filament/filament": "^2.16",
     "filament/spatie-laravel-translatable-plugin": "^2.17",
-    "stevebauman/location": "^7.0"
+    "stevebauman/location": "*"
   },
   "require-dev": {
     "orchestra/testbench": "^8.11"
