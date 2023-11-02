@@ -10,4 +10,10 @@
 php artisan vendor:publish --provider="Nurdaulet\FluxBase\FluxBaseServiceProvider"
 ```
 
-
+Вы можете самостоятельно добавить поставщика услуг административной панели Filament в файл config/app.php.
+``` php
+'providers' => [
+    // ...
+    Nurdaulet\FluxBase\FluxBaseFilamentServiceProvider::class,
+];
+```
