@@ -27,8 +27,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Nurdaulet\\FluxBase\\FluxBaseServiceProvider",
-        "Nurdaulet\\FluxBase\\FluxBaseFilamentServiceProvider"
+        "Nurdaulet\\FluxBase\\FluxBaseServiceProvider"
       ],
       "aliases": {
           "TextConverter": "Nurdaulet\\FluxBase\\Facades\\TextConverter",
