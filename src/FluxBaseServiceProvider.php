@@ -51,9 +51,9 @@ class FluxBaseServiceProvider extends ServiceProvider
         ], 'flux-base-config');
 
 
-        if (!file_exists(config_path('flux-base.php'))) {
-            Artisan::call('vendor:publish', ['--tag' => 'flux-base-config']);
-        }
+//        if (!file_exists(config_path('flux-base.php'))) {
+//            Artisan::call('vendor:publish', ['--tag' => 'flux-base-config']);
+//        }
     }
 
     protected function publishMigrations()
