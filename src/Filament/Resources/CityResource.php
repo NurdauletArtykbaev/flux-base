@@ -9,6 +9,7 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Nurdaulet\FluxBase\Models\City;
+use Illuminate\Validation\Rules\Unique;
 
 class CityResource extends Resource
 {
@@ -29,7 +30,7 @@ class CityResource extends Resource
                     ->label(trans('admin.name')),
                 Forms\Components\TextInput::make('slug')
                     ->required()
-                    ->unique()
+                    ->unique(ignoreRecord: true)
                     ->maxLength(255)
                     ->label(trans('admin.slug')),
                 Forms\Components\TextInput::make('lat')
