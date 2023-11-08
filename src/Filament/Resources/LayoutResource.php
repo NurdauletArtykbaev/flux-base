@@ -77,9 +77,9 @@ class LayoutResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListComplaintReasons::route('/'),
-            'create' => Pages\CreateComplaintReason::route('/create'),
-            'edit' => Pages\EditComplaintReason::route('/{record}/edit'),
+            'index' => Pages\ListLayouts::route('/'),
+            'create' => Pages\CreateLayout::route('/create'),
+            'edit' => Pages\EditLayout::route('/{record}/edit'),
         ];
     }
 }
