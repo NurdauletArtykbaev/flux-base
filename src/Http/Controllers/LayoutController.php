@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Nurdaulet\FluxBase\Http\Resources\LayoutResource;
 use Illuminate\Support\Facades\Cache;
 
-class LayoutController extends Controller
+class LayoutController
 {
     public function __invoke()
     {
