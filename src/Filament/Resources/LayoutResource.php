@@ -30,12 +30,10 @@ class LayoutResource extends Resource
                 Forms\Components\TextInput::make('slug')
                     ->required()
                     ->label(trans('admin.slug')),
-                Forms\Components\Textarea::make('name')
-                    ->required()
+                Forms\Components\Textarea::make('text')
                     ->label(trans('admin.text'))
                     ->rows(8)->cols(10),
                 Forms\Components\Toggle::make('is_active')
-                    ->required()
                     ->label(trans('admin.status')),
             ]);
     }
