@@ -11,11 +11,13 @@ use Nurdaulet\FluxBase\Http\Controllers\InfoBalanceController;
 use Nurdaulet\FluxBase\Http\Controllers\SupportController;
 use Nurdaulet\FluxBase\Http\Controllers\ClickHistoryController;
 use Nurdaulet\FluxBase\Http\Controllers\PartnerController;
+use Nurdaulet\FluxBase\Http\Controllers\LayoutController;
 use Illuminate\Support\Facades\Route;
 
 
 Route::prefix('api')->group(function () {
     Route::get('cities', CityController::class);
+    Route::get('layout', LayoutController::class);
     Route::get('banners', BannerController::class);
     Route::get('ratings', RatingController::class);
     Route::get('type-organizations', TypeOrganizationController::class);

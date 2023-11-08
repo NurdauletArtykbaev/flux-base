@@ -4,6 +4,7 @@
 namespace Nurdaulet\FluxBase\Http\Controllers;
 
 use Illuminate\Support\Facades\Cache;
+use Nurdaulet\FluxBase\Http\Resources\InfoBalancesResource;
 
 final class InfoBalanceController
 {

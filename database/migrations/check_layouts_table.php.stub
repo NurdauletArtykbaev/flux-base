@@ -1,0 +1,85 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration {
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+//        $types = [
+//          [
+//              'type' => 'page',
+//              'slug' => 'product',
+//          ],
+//          [
+//              'type' => 'page',
+//              'slug' => 'product',
+//          ],
+//          [
+//              'type' => 'promotion_group',
+//              'slug' => 'product',
+//          ],
+//          [
+//              'type' => 'commercial',
+//              'slug' => 'slug',
+//          ]
+//        ];
+
+        if (Schema::hasTable('layouts')) {
+            $this->checkColumns();
+        } else {
+            Schema::create('layouts', function (Blueprint $table) {
+                $table->id();
+                //page,  commercial, promotion_group
+                $table->string('type')->nullable();
+                $table->string('slug')->nullable();
+                $table->text('text')->nullable();
+                $table->integer('sort')->default(0);
+                $table->boolean('is_active')->default(false);
+                $table->timestamps();
+            });
+        }
+    }
+
+    private function checkColumns()
+    {
+        if (!Schema::hasColumn('layouts', 'type')) {
+            Schema::table('layouts', function (Blueprint $table) {
+                $table->string('type')->nullable();
+            });
+        }
+        if (!Schema::hasColumn('layouts', 'slug')) {
+            Schema::table('layouts', function (Blueprint $table) {
+                $table->string('slug')->nullable();
+            });
+        }
+        if (!Schema::hasColumn('layouts', 'text')) {
+            Schema::table('layouts', function (Blueprint $table) {
+                $table->text('text')->nullable();
+            });
+        }
+        if (!Schema::hasColumn('layouts', 'sort')) {
+            Schema::table('layouts', function (Blueprint $table) {
+                $table->integer('sort')->default(0);
+            });
+        }
+        if (!Schema::hasColumn('layouts', 'is_active')) {
+            Schema::table('layouts', function (Blueprint $table) {
+                $table->boolean('is_active')->default(false);
+            });
+        }
+    }
+
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('layouts');
+    }
+};

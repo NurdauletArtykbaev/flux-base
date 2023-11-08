@@ -3,7 +3,6 @@
 namespace Nurdaulet\FluxBase\Http\Controllers;
 
 use Nurdaulet\FluxBase\Http\Resources\ComplaintReasonsResource;
-use App\Models\ComplaintReason;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Nurdaulet\FluxBase\Repositories\ComplaintReasonRepository;

@@ -18,6 +18,7 @@ return [
         'city' => \Nurdaulet\FluxBase\Models\City::class,
         'type_organization' => \Nurdaulet\FluxBase\Models\TypeOrganization::class,
         'info_balance' => \Nurdaulet\FluxBase\Models\InfoBalance::class,
+        'layout' => \Nurdaulet\FluxBase\Models\Layout::class,
     ],
     'languages' => [
         'ru', 'en', 'kk'

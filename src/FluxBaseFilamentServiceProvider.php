@@ -7,6 +7,7 @@ use Filament\PluginServiceProvider;
 use Nurdaulet\FluxBase\Filament\Resources\BannerResource;
 use Nurdaulet\FluxBase\Filament\Resources\CityResource;
 use Nurdaulet\FluxBase\Filament\Resources\ComplaintReasonResource;
+use Nurdaulet\FluxBase\Filament\Resources\LayoutResource;
 use Nurdaulet\FluxBase\Filament\Resources\MobileAppResource;
 use Nurdaulet\FluxBase\Filament\Resources\PartnerResource;
 use Nurdaulet\FluxBase\Filament\Resources\RatingResource;
@@ -23,6 +24,7 @@ class FluxBaseFilamentServiceProvider extends PluginServiceProvider
         RatingResource::class,
         ComplaintReasonResource::class,
         RentTypeResource::class,
+        LayoutResource::class,
         MobileAppResource::class,
         SupportResource::class,
         PartnerResource::class,
