@@ -11,7 +11,7 @@ class LayoutController
     public function __invoke()
     {
         return Cache::remember("layout", 269746, function () {
-            return LayoutResource::collection(config('flux-items.models.layout')::active()->orderBy('sort')->get());
+            return LayoutResource::collection(config('flux-base.models.layout')::active()->orderBy('sort')->get());
         });
     }
 }
