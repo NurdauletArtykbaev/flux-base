@@ -12,8 +12,8 @@ class TempImageController
     }
 
 
-    public function upload(TempImageSaveRequest $request): array
+    public function upload(TempImageSaveRequest $request)
     {
-        return $this->imageService->tempImageUrl($request);
+        return response()->json(['data'=> $this->imageService->tempImageUrl($request)]);
     }
 }
