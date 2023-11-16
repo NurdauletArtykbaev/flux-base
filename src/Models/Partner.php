@@ -45,16 +45,17 @@ class Partner extends Model
 
     public function getImageUrlAttribute()
     {
-        return config('filesystems.disks.s3.url').'/'.$this->image;
+        return $this->image ? config('filesystems.disks.s3.url') . '/' . $this->image : null;
     }
 
     public function getWebpUrlAttribute()
     {
-        return $this->webp ?  config('filesystems.disks.s3.url').'/'.$this->webp : null;
+        return $this->webp ? config('filesystems.disks.s3.url') . '/' . $this->webp : null;
     }
+
     public function getLogoUrlAttribute()
     {
-        return config('filesystems.disks.s3.url').'/'.$this->logo;
+        return $this->logo ? config('filesystems.disks.s3.url') . '/' . $this->logo : null;
     }
 
     public function getLogoWebpUrlAttribute()

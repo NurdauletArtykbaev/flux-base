@@ -2,7 +2,7 @@
 
 namespace Nurdaulet\FluxBase\Filament\Resources;
 
-use Nurdaulet\FluxBase\Facades\Helpers\StringFormatter;
+use Nurdaulet\FluxBase\Facades\StringFormatter;
 use Nurdaulet\FluxBase\Filament\Resources\PartnerResource\Pages;
 use Nurdaulet\FluxBase\Models\Partner;
 use Filament\Forms;

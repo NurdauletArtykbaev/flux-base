@@ -9,6 +9,7 @@ class PartnerRepository
     public function get($cityId = null)
     {
         return config('flux-base.models.partner')::active()
+            ->select('user_id')
             ->with('partner:id,name,surname,company_name,avatar,avg_rating')
             ->when($cityId, fn($query) => $query->whereHas('cities', fn($query) => $query->where('city_id', $cityId)))
             ->limit(10)

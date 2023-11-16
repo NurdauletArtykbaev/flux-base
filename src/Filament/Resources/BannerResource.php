@@ -10,7 +10,7 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use Nurdaulet\FluxBase\Facades\Helpers\StringFormatter;
+use Nurdaulet\FluxBase\Facades\StringFormatter;
 use Nurdaulet\FluxBase\Models\Banner;
 
 class BannerResource extends Resource

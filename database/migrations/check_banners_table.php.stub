@@ -24,6 +24,7 @@ return new class extends Migration {
                 $table->foreignId('catalog_id')->nullable()->constrained('catalogs')->cascadeOnDelete();
                 $table->foreignId('rent_type_id')->nullable()->constrained('rent_types')->cascadeOnDelete();
                 $table->boolean('is_active')->default(false);
+                $table->integer('sort')->default(0);
                 $table->softDeletes();
                 $table->timestamps();
             });
@@ -50,6 +51,11 @@ return new class extends Migration {
         if (!Schema::hasColumn('banners', 'price')) {
             Schema::table('banners', function (Blueprint $table) {
                 $table->integer('price')->nullable();
+            });
+        }
+        if (!Schema::hasColumn('banners', 'sort')) {
+            Schema::table('banners', function (Blueprint $table) {
+                $table->integer('sort')->default(0);
             });
         }
         if (!Schema::hasColumn('banners', 'catalog_id')) {
