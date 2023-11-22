@@ -19,6 +19,7 @@ return [
         'type_organization' => \Nurdaulet\FluxBase\Models\TypeOrganization::class,
         'info_balance' => \Nurdaulet\FluxBase\Models\InfoBalance::class,
         'layout' => \Nurdaulet\FluxBase\Models\Layout::class,
+        'rating' => \Nurdaulet\FluxBase\Models\Rating::class,
     ],
     'languages' => [
         'ru', 'en', 'kk'

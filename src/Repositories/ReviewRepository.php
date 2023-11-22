@@ -7,7 +7,7 @@ class ReviewRepository
 {
     public function getByReviewable($reviewable)
     {
-        return $reviewable->reviews()->isActive()->simplePaginate();
+        return $reviewable->reviews()->whereNotNull('comment')->simplePaginate();
     }
 
     public function create($reviewable, $data)

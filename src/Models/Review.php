@@ -35,7 +35,6 @@ class Review extends Model
 
     protected $casts = [
         'created_at'   => 'datetime:F',
-        'is_processed' => 'boolean',
         'is_skipped' => 'boolean',
     ];
 }
