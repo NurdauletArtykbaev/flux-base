@@ -15,6 +15,7 @@ return new class extends Migration {
         if (Schema::hasTable('reviews')) {
             $this->checkColumns();
         } else {
+
             Schema::create('reviews', function (Blueprint $table) {
                 $table->id();
                 $table->morphs('reviewable');
