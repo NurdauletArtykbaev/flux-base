@@ -30,7 +30,7 @@ return new class extends Migration {
 
     private function checkColumns()
     {
-        if (!Schema::hasColumn('reviews', 'rating')) {
+        if (!Schema::hasColumn('reviews', 'reviewable_type')) {
             Schema::table('reviews', function (Blueprint $table) {
                 $table->morphs('reviewable');
             });
