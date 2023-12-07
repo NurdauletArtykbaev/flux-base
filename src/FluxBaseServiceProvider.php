@@ -3,8 +3,6 @@
 namespace Nurdaulet\FluxBase;
 
 
-use Nurdaulet\FluxBase\Filament\Resources\BannerResource;
-use Nurdaulet\FluxBase\Filament\Resources\CityResource;
 use Nurdaulet\FluxBase\Helpers\StringFormatterHelper;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Collection;
@@ -61,22 +59,23 @@ class FluxBaseServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__ . '/../database/migrations/check_type_organizations.php.stub' => $this->getMigrationFileName('00','check_flux_base_type_organizations.php'),
-            __DIR__ . '/../database/migrations/check_cities_table.php.stub' => $this->getMigrationFileName('01','check_flux_base_cities_table.php'),
-            __DIR__ . '/../database/migrations/check_mobile_versions_table.php.stub' => $this->getMigrationFileName('02','check_flux_base_mobile_versions_table.php'),
-            __DIR__ . '/../database/migrations/check_rent_types_table.php.stub' => $this->getMigrationFileName('03','check_flux_base_rent_types_table.php'),
-            __DIR__ . '/../database/migrations/check_complaint_reasons_table.php.stub' => $this->getMigrationFileName('04','check_flux_base_complaint_reasons_table.php'),
-            __DIR__ . '/../database/migrations/check_users_table.php.stub' => $this->getMigrationFileName('05','check_flux_base_users_table.php'),
-            __DIR__ . '/../database/migrations/check_supports_table.php.stub' => $this->getMigrationFileName('06','check_flux_base_supports_table.php'),
-            __DIR__ . '/../database/migrations/check_banners_table.php.stub' => $this->getMigrationFileName('07','check_flux_base_banners_table.php'),
-            __DIR__ . '/../database/migrations/check_click_histories_table.php.stub' => $this->getMigrationFileName('08','check_flux_base_click_histories_table.php'),
-            __DIR__ . '/../database/migrations/check_partners_table.php.stub' => $this->getMigrationFileName('09','check_flux_base_partners_table.php'),
-            __DIR__ . '/../database/migrations/check_partner_cities_table.php.stub' => $this->getMigrationFileName('10','check_flux_base_partner_cities_table.php'),
-            __DIR__ . '/../database/migrations/check_ratings_table.php.stub' => $this->getMigrationFileName('11','check_flux_base_ratings_table.php'),
-            __DIR__ . '/../database/migrations/check_rating_messages_table.php.stub' => $this->getMigrationFileName('12','check_flux_base_rating_messages_table.php'),
-            __DIR__ . '/../database/migrations/check_reviews_table.php.stub' => $this->getMigrationFileName('13','check_flux_base_reviews_table.php'),
-            __DIR__ . '/../database/migrations/check_review_rating_message_table.php.stub' => $this->getMigrationFileName('14','check_flux_base_review_rating_message_table.php'),
-            __DIR__ . '/../database/migrations/check_temprory_images_table.php.stub' => $this->getMigrationFileName('15','check_flux_base_temprory_images_table.php'),
-            __DIR__ . '/../database/migrations/check_layouts_table.php.stub' => $this->getMigrationFileName('16','check_flux_base_layouts_table.php'),
+            __DIR__ . '/../database/migrations/check_countries_table.php.stub' => $this->getMigrationFileName('01','check_flux_base_countries_table.php'),
+            __DIR__ . '/../database/migrations/check_cities_table.php.stub' => $this->getMigrationFileName('02','check_flux_base_cities_table.php'),
+            __DIR__ . '/../database/migrations/check_mobile_versions_table.php.stub' => $this->getMigrationFileName('03','check_flux_base_mobile_versions_table.php'),
+            __DIR__ . '/../database/migrations/check_rent_types_table.php.stub' => $this->getMigrationFileName('04','check_flux_base_rent_types_table.php'),
+            __DIR__ . '/../database/migrations/check_complaint_reasons_table.php.stub' => $this->getMigrationFileName('05','check_flux_base_complaint_reasons_table.php'),
+            __DIR__ . '/../database/migrations/check_users_table.php.stub' => $this->getMigrationFileName('06','check_flux_base_users_table.php'),
+            __DIR__ . '/../database/migrations/check_supports_table.php.stub' => $this->getMigrationFileName('07','check_flux_base_supports_table.php'),
+            __DIR__ . '/../database/migrations/check_banners_table.php.stub' => $this->getMigrationFileName('08','check_flux_base_banners_table.php'),
+            __DIR__ . '/../database/migrations/check_click_histories_table.php.stub' => $this->getMigrationFileName('09','check_flux_base_click_histories_table.php'),
+            __DIR__ . '/../database/migrations/check_partners_table.php.stub' => $this->getMigrationFileName('10','check_flux_base_partners_table.php'),
+            __DIR__ . '/../database/migrations/check_partner_cities_table.php.stub' => $this->getMigrationFileName('11','check_flux_base_partner_cities_table.php'),
+            __DIR__ . '/../database/migrations/check_ratings_table.php.stub' => $this->getMigrationFileName('12','check_flux_base_ratings_table.php'),
+            __DIR__ . '/../database/migrations/check_rating_messages_table.php.stub' => $this->getMigrationFileName('13','check_flux_base_rating_messages_table.php'),
+            __DIR__ . '/../database/migrations/check_reviews_table.php.stub' => $this->getMigrationFileName('14','check_flux_base_reviews_table.php'),
+            __DIR__ . '/../database/migrations/check_review_rating_message_table.php.stub' => $this->getMigrationFileName('15','check_flux_base_review_rating_message_table.php'),
+            __DIR__ . '/../database/migrations/check_temprory_images_table.php.stub' => $this->getMigrationFileName('16','check_flux_base_temprory_images_table.php'),
+            __DIR__ . '/../database/migrations/check_layouts_table.php.stub' => $this->getMigrationFileName('17','check_flux_base_layouts_table.php'),
         ], 'flux-base-migrations');
     }
 

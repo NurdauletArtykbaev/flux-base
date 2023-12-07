@@ -2,7 +2,7 @@
 
 namespace Nurdaulet\FluxBase\Filament\Resources;
 
-use Nurdaulet\FluxBase\Filament\Resources\CityResource\Pages;
+use Nurdaulet\FluxBase\Filament\Resources\CountryResource\Pages;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -10,13 +10,14 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Nurdaulet\FluxBase\Models\City;
 use Illuminate\Validation\Rules\Unique;
+use Nurdaulet\FluxBase\Models\Country;
 
-class CityResource extends Resource
+class CountryResource extends Resource
 {
 
-    protected static ?string $model = City::class;
-    protected static ?string $modelLabel = 'город';
-    protected static ?string $pluralModelLabel = 'Города';
+    protected static ?string $model = Country::class;
+    protected static ?string $modelLabel = 'Страна';
+    protected static ?string $pluralModelLabel = 'Страна';
 
     protected static ?string $navigationIcon = 'heroicon-o-cube-transparent';
 
@@ -28,20 +29,17 @@ class CityResource extends Resource
                     ->required()
                     ->maxLength(255)
                     ->label(trans('admin.name')),
-                Forms\Components\TextInput::make('slug')
-                    ->required()
-                    ->unique(ignoreRecord: true)
+                Forms\Components\TextInput::make('phone_code')
                     ->maxLength(255)
                     ->label(trans('admin.slug')),
-                Forms\Components\Select::make('country_id')
-                    ->relationship('country', 'name')
-                    ->label(trans('admin.country')),
-                Forms\Components\TextInput::make('lat')
-                    ->maxLength(255)
-                    ->label(trans('admin.lat')),
-                Forms\Components\TextInput::make('lng')
-                    ->maxLength(255)
-                    ->label(trans('admin.lng')),
+                Forms\Components\Select::make('technologies')
+                    ->multiple()
+                    ->relationship('cities', 'name'),
+                Forms\Components\FileUpload::make('icon')
+                    ->image()
+                    ->disk('s3')
+                    ->directory('country')
+                    ->label(trans('admin.icon')),
                 Forms\Components\Toggle::make('is_active')
                     ->required()
                     ->label(trans('admin.is_active')),
@@ -52,10 +50,8 @@ class CityResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')->label(trans('admin.nsame')),
-                Tables\Columns\TextColumn::make('slug')->label(trans('admin.slug')),
-                Tables\Columns\TextColumn::make('lat')->label(trans('admin.lat')),
-                Tables\Columns\TextColumn::make('lng')->label(trans('admin.lng')),
+                Tables\Columns\TextColumn::make('name')->label(trans('admin.name')),
+                Tables\Columns\TextColumn::make('slug')->label(trans('admin.phone_code')),
                 Tables\Columns\BooleanColumn::make('is_active')->label(trans('admin.is_active')),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()->label(trans('admin.created_at')),
@@ -75,9 +71,9 @@ class CityResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListCities::route('/'),
-            'create' => Pages\CreateCity::route('/create'),
-            'edit' => Pages\EditCity::route('/{record}/edit'),
+            'index' => Pages\ListCountry::route('/'),
+            'create' => Pages\CreateCountry::route('/create'),
+            'edit' => Pages\EditCountry::route('/{record}/edit'),
         ];
     }
 }

@@ -3,6 +3,7 @@ return [
 
     'models' => [
         'catalog' => \Nurdaulet\FluxBase\Models\Catalog::class,
+        'country' => \Nurdaulet\FluxBase\Models\Country::class,
         'partner' => \Nurdaulet\FluxBase\Models\Partner::class,
         'click_history' => \Nurdaulet\FluxBase\Models\ClickHistory::class,
         'user' => \Nurdaulet\FluxBase\Models\User::class,

@@ -1,0 +1,69 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        if (Schema::hasTable('countries')) {
+            $this->checkColumns();
+        } else {
+            Schema::create('countries', function (Blueprint $table) {
+                $table->id();
+                $table->string('name');
+                $table->string('phone_code')->nullable();
+                $table->string('icon')->nullable();
+                $table->boolean('is_active')->default(1);
+                $table->softDeletes();
+                $table->timestamps();
+            });
+        }
+    }
+
+    private function checkColumns()
+    {
+        if (!Schema::hasColumn('countries', 'name')) {
+            Schema::table('countries', function (Blueprint $table) {
+                $table->string('name');
+            });
+        }
+        if (!Schema::hasColumn('countries', 'phone_code')) {
+            Schema::table('countries', function (Blueprint $table) {
+                $table->string('phone_code')->nullable();
+            });
+        }
+        if (!Schema::hasColumn('countries', 'icon')) {
+            Schema::table('countries', function (Blueprint $table) {
+                $table->string('icon')->nullable();
+            });
+        }
+        if (!Schema::hasColumn('countries', 'is_active')) {
+            Schema::table('countries', function (Blueprint $table) {
+                $table->boolean('is_active')->default(1);
+            });
+        }
+        if (!Schema::hasColumn('countries', 'deleted_at')) {
+            Schema::table('countries', function (Blueprint $table) {
+                $table->softDeletes();
+            });
+        }
+
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('countries');
+    }
+};

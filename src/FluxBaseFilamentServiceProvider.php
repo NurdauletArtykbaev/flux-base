@@ -7,6 +7,7 @@ use Filament\PluginServiceProvider;
 use Nurdaulet\FluxBase\Filament\Resources\BannerResource;
 use Nurdaulet\FluxBase\Filament\Resources\CityResource;
 use Nurdaulet\FluxBase\Filament\Resources\ComplaintReasonResource;
+use Nurdaulet\FluxBase\Filament\Resources\CountryResource;
 use Nurdaulet\FluxBase\Filament\Resources\LayoutResource;
 use Nurdaulet\FluxBase\Filament\Resources\MobileAppResource;
 use Nurdaulet\FluxBase\Filament\Resources\PartnerResource;
@@ -20,6 +21,7 @@ class FluxBaseFilamentServiceProvider extends PluginServiceProvider
 {
     protected array $resources = [
         BannerResource::class,
+        CountryResource::class,
         CityResource::class,
         RatingResource::class,
         ComplaintReasonResource::class,

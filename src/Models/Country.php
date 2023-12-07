@@ -6,15 +6,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class City extends Model
+class Country extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $guarded = ['id'];
+    protected $fillable = ['name','phone_code', 'icon', 'is_active'];
 
-    public function country()
+    public function cities()
     {
-        return $this->belongsTo(Country::class);
+        return $this->hasMany(City::class);
     }
+
     public function scopeActive($query)
     {
         return $query->where('is_active', 1);
