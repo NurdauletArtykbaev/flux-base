@@ -18,5 +18,4 @@ class RentType extends Model
     protected $guarded = ['id'];
     public array $translatable = ['name'];
 
-
 }

@@ -5,6 +5,7 @@ use Nurdaulet\FluxBase\Http\Controllers\CityController;
 use Nurdaulet\FluxBase\Http\Controllers\ComplaintReasonController;
 use Nurdaulet\FluxBase\Http\Controllers\RatingController;
 use Nurdaulet\FluxBase\Http\Controllers\MobileAppController;
+use Nurdaulet\FluxBase\Http\Controllers\RentTypeController;
 use Nurdaulet\FluxBase\Http\Controllers\TempImageController;
 use Nurdaulet\FluxBase\Http\Controllers\TypeOrganizationController;
 use Nurdaulet\FluxBase\Http\Controllers\InfoBalanceController;
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('api')->group(function () {
     Route::get('cities', CityController::class);
+    Route::get('rent-types', RentTypeController::class);
     Route::get('layout', LayoutController::class);
     Route::get('banners', BannerController::class);
     Route::get('ratings', RatingController::class);

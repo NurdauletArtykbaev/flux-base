@@ -1,16 +1,13 @@
 <?php
 return [
-    'table_names'=> [
-        'category' => 'categories',
-        'banner' => 'banners',
-        'city' => 'cities',
-    ],
+
     'models' => [
         'catalog' => \Nurdaulet\FluxBase\Models\Catalog::class,
         'partner' => \Nurdaulet\FluxBase\Models\Partner::class,
         'click_history' => \Nurdaulet\FluxBase\Models\ClickHistory::class,
         'user' => \Nurdaulet\FluxBase\Models\User::class,
         'support' => \Nurdaulet\FluxBase\Models\Support::class,
+        'rent_type' => \Nurdaulet\FluxBase\Models\RentType::class,
         'banner' => \Nurdaulet\FluxBase\Models\Banner::class,
         'complaint_reason' => \Nurdaulet\FluxBase\Models\ComplaintReason::class,
         'mobile_version' => \Nurdaulet\FluxBase\Models\MobileVersion::class,
