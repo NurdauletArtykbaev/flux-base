@@ -31,10 +31,7 @@ class CountryResource extends Resource
                     ->label(trans('admin.name')),
                 Forms\Components\TextInput::make('phone_code')
                     ->maxLength(255)
-                    ->label(trans('admin.slug')),
-                Forms\Components\Select::make('technologies')
-                    ->multiple()
-                    ->relationship('cities', 'name'),
+                    ->label(trans('admin.phone_code')),
                 Forms\Components\FileUpload::make('icon')
                     ->image()
                     ->disk('s3')

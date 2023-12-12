@@ -84,7 +84,7 @@ class FluxBaseServiceProvider extends ServiceProvider
      */
     protected function getMigrationFileName($index, string $migrationFileName): string
     {
-        $timestamp = date('Y_m_d_His');
+        $timestamp = date('Y_m_d_His','1638640800');
 
         $filesystem = $this->app->make(Filesystem::class);
 
