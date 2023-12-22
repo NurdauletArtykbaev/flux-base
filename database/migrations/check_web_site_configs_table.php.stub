@@ -1,0 +1,40 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration {
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        if (Schema::hasTable('web_site_configs')) {
+            $this->checkColumns();
+        } else {
+            Schema::create('web_site_configs', function (Blueprint $table) {
+                $table->id();
+                $table->longText('config')->nullable();
+                $table->timestamps();
+            });
+        }
+    }
+
+    private function checkColumns()
+    {
+        if (!Schema::hasColumn('web_site_configs', 'config')) {
+            Schema::table('web_site_configs', function (Blueprint $table) {
+                $table->longText('config')->nullable();
+            });
+        }
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('web_site_configs');
+    }
+};

@@ -14,6 +14,7 @@ use Nurdaulet\FluxBase\Filament\Resources\PartnerResource;
 use Nurdaulet\FluxBase\Filament\Resources\RatingResource;
 use Nurdaulet\FluxBase\Filament\Resources\RentTypeResource;
 use Nurdaulet\FluxBase\Filament\Resources\SupportResource;
+use Nurdaulet\FluxBase\Filament\Resources\WebSiteConfigResource;
 use Nurdaulet\FluxBase\Filament\Widgets\WClickPhoneHistoryChart;
 use Spatie\LaravelPackageTools\Package;
 
@@ -30,6 +31,7 @@ class FluxBaseFilamentServiceProvider extends PluginServiceProvider
         MobileAppResource::class,
         SupportResource::class,
         PartnerResource::class,
+        WebSiteConfigResource::class,
     ];
     protected array $widgets = [
         WClickPhoneHistoryChart::class,

@@ -15,6 +15,7 @@ return [
         'temp_image' => \Nurdaulet\FluxBase\Models\TemproryImage::class,
         'city' => \Nurdaulet\FluxBase\Models\City::class,
         'type_organization' => \Nurdaulet\FluxBase\Models\TypeOrganization::class,
+        'web_site_config' => \Nurdaulet\FluxBase\Models\WebSiteConfig::class,
         'info_balance' => \Nurdaulet\FluxBase\Models\InfoBalance::class,
         'layout' => \Nurdaulet\FluxBase\Models\Layout::class,
         'rating' => \Nurdaulet\FluxBase\Models\Rating::class,

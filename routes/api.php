@@ -15,6 +15,7 @@ use Nurdaulet\FluxBase\Http\Controllers\ClickHistoryController;
 use Nurdaulet\FluxBase\Http\Controllers\PartnerController;
 use Nurdaulet\FluxBase\Http\Controllers\LayoutController;
 use Illuminate\Support\Facades\Route;
+use Nurdaulet\FluxBase\Http\Controllers\WebSiteConfigController;
 
 
 Route::prefix('api')->group(function () {
@@ -32,5 +33,9 @@ Route::prefix('api')->group(function () {
     Route::post('support', [SupportController::class, 'store']);
     Route::get('partners', [PartnerController::class, 'index']);
     Route::post('click', [ClickHistoryController::class, 'store']);
+
+
+    Route::get('web-site-config', [WebSiteConfigController::class,'index']);
+    Route::post('web-site-config', [WebSiteConfigController::class,'store']);
 
 });
