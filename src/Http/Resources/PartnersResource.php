@@ -21,9 +21,9 @@ class PartnersResource extends JsonResource
             'company_name' => $this->partner->company_name,
             'avg_rating' => $this->partner->avg_rating,
             'image_url' => $this->image_url,
-            'webp_url' => $this->webp_url,
+//            'webp_url' => $this->webp_url,
             'logo_url' => $this->logo_url,
-            'logo_webp_url' => $this->logo_webp_url,
+//            'logo_webp_url' => $this->logo_webp_url,
         ];
     }
 }

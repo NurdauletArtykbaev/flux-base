@@ -53,11 +53,9 @@ class WebSiteConfigResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('value')
+                Tables\Columns\TextColumn::make('config')
                     ->label(trans('admin.value'))
                     ->searchable(),
-                Tables\Columns\ToggleColumn::make('is_active')
-                    ->label(trans('admin.is_active')),
             ])
             ->filters([
             ])

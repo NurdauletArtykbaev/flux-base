@@ -14,6 +14,7 @@ return [
         'mobile_version' => \Nurdaulet\FluxBase\Models\MobileVersion::class,
         'temp_image' => \Nurdaulet\FluxBase\Models\TemproryImage::class,
         'city' => \Nurdaulet\FluxBase\Models\City::class,
+        'link' => \Nurdaulet\FluxBase\Models\Link::class,
         'type_organization' => \Nurdaulet\FluxBase\Models\TypeOrganization::class,
         'web_site_config' => \Nurdaulet\FluxBase\Models\WebSiteConfig::class,
         'info_balance' => \Nurdaulet\FluxBase\Models\InfoBalance::class,

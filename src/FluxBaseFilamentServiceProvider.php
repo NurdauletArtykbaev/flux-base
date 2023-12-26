@@ -9,6 +9,7 @@ use Nurdaulet\FluxBase\Filament\Resources\CityResource;
 use Nurdaulet\FluxBase\Filament\Resources\ComplaintReasonResource;
 use Nurdaulet\FluxBase\Filament\Resources\CountryResource;
 use Nurdaulet\FluxBase\Filament\Resources\LayoutResource;
+use Nurdaulet\FluxBase\Filament\Resources\LinkResource;
 use Nurdaulet\FluxBase\Filament\Resources\MobileAppResource;
 use Nurdaulet\FluxBase\Filament\Resources\PartnerResource;
 use Nurdaulet\FluxBase\Filament\Resources\RatingResource;
@@ -32,6 +33,7 @@ class FluxBaseFilamentServiceProvider extends PluginServiceProvider
         SupportResource::class,
         PartnerResource::class,
         WebSiteConfigResource::class,
+        LinkResource::class,
     ];
     protected array $widgets = [
         WClickPhoneHistoryChart::class,

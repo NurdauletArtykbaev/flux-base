@@ -4,6 +4,7 @@ use Nurdaulet\FluxBase\Http\Controllers\BannerController;
 use Nurdaulet\FluxBase\Http\Controllers\CityController;
 use Nurdaulet\FluxBase\Http\Controllers\ComplaintReasonController;
 use Nurdaulet\FluxBase\Http\Controllers\CountryController;
+use Nurdaulet\FluxBase\Http\Controllers\LinkController;
 use Nurdaulet\FluxBase\Http\Controllers\RatingController;
 use Nurdaulet\FluxBase\Http\Controllers\MobileAppController;
 use Nurdaulet\FluxBase\Http\Controllers\RentTypeController;
@@ -20,6 +21,7 @@ use Nurdaulet\FluxBase\Http\Controllers\WebSiteConfigController;
 
 Route::prefix('api')->group(function () {
     Route::get('cities', CityController::class);
+    Route::get('links', LinkController::class);
     Route::get('countries', CountryController::class);
     Route::get('rent-types', RentTypeController::class);
     Route::get('layout', LayoutController::class);
