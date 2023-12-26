@@ -11,7 +11,7 @@ class LinkController
 
     public function __invoke(Request $request)
     {
-        return LinksResource::collection(config('flux-base.models.link')->get());
+        return LinksResource::collection(config('flux-base.models.link')::get());
     }
 
 }

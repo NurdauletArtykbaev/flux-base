@@ -12,6 +12,7 @@ class LayoutHelper
             'item' => 'Товары',
             'promotion_group' => 'Коллекция',
             'commercial' => 'Реклама',
+            'entity' => 'Каталаг с товарами',
         ];
     }
 
