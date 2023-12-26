@@ -9,11 +9,12 @@ class Layout extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'type',  'slug', 'sort', 'is_active','text',
+        'type',  'slug', 'sort', 'fields', 'is_active','text',
     ];
 
     protected $casts = [
-        'is_active' => 'boolean'
+        'is_active' => 'boolean',
+        'fields' => 'json'
     ];
 
     public function scopeActive($query)

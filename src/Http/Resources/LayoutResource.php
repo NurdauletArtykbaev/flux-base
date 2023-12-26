@@ -17,7 +17,8 @@ class LayoutResource extends JsonResource
         return [
             'type' => $this->type,
             'slug' => $this->slug,
-            'text' => $this->text
+            'text' => $this->text,
+            'fields' => $this->fields
         ];
     }
 }

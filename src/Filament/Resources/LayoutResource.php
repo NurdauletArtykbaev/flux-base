@@ -33,6 +33,10 @@ class LayoutResource extends Resource
                 Forms\Components\Textarea::make('text')
                     ->label(trans('admin.text'))
                     ->rows(8)->cols(10),
+                Forms\Components\KeyValue::make('fields')
+                    ->keyPlaceholder('Ключ')
+                    ->label('Конфиг')
+                    ->valuePlaceholder('Значения'),
                 Forms\Components\Toggle::make('is_active')
                     ->label(trans('admin.status')),
             ]);
@@ -49,6 +53,8 @@ class LayoutResource extends Resource
                     ->label(trans('admin.slug')),
                 Tables\Columns\TextColumn::make('text')
                     ->label(trans('admin.text')),
+                Tables\Columns\TextColumn::make('fields')
+                    ->label(trans('admin.value')),
                 Tables\Columns\IconColumn::make('is_active')
                     ->boolean()->label(trans('admin.status'))
             ])

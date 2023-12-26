@@ -38,6 +38,7 @@ return new class extends Migration {
                 $table->string('type')->nullable();
                 $table->string('slug')->nullable();
                 $table->text('text')->nullable();
+                $table->text('fields')->nullable();
                 $table->integer('sort')->default(0);
                 $table->boolean('is_active')->default(false);
                 $table->timestamps();
@@ -60,6 +61,11 @@ return new class extends Migration {
         if (!Schema::hasColumn('layouts', 'text')) {
             Schema::table('layouts', function (Blueprint $table) {
                 $table->text('text')->nullable();
+            });
+        }
+        if (!Schema::hasColumn('layouts', 'fields')) {
+            Schema::table('layouts', function (Blueprint $table) {
+                $table->text('fields')->nullable();
             });
         }
         if (!Schema::hasColumn('layouts', 'sort')) {
