@@ -3,7 +3,7 @@
 namespace Nurdaulet\FluxBase\Filament\Resources;
 
 
-use Nurdaulet\FluxBase\Filament\WebSiteConfigResource\Pages;
+use Nurdaulet\FluxBase\Filament\Resources\WebSiteConfigResource\Pages;
 use Filament\Forms;
 use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Form;

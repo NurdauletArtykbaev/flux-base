@@ -1,5 +1,5 @@
 <?php
-namespace Nurdaulet\FluxBase\Filament\WebSiteConfigResource\Pages;
+namespace Nurdaulet\FluxBase\Filament\Resources\WebSiteConfigResource\Pages;
 
 
 use Nurdaulet\FluxBase\Filament\Resources\WebSiteConfigResource;
