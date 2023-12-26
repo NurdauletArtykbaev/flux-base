@@ -22,11 +22,12 @@ class LinkResource extends Resource
     }
     public static function getModelLabel(): string
     {
-        return trans('flux-base.link.plural');
+        return 'Ссылки на верхнем блоке';
     }
 
     public static function getPluralModelLabel(): string
     {
+        return 'Ссылки на верхнем блоке';
         return trans('flux-base.link.plural');
     }
 
