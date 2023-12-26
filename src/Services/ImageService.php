@@ -19,17 +19,24 @@ class ImageService
                 $filePath = 'items/' . Str::uuid() . time() . '.' . $image->getClientOriginalExtension();
                 $webp_filePath = 'items/' . Str::uuid() . time() . '.webp';
 
-                $jpg_image = ImageManagerStatic::make($image)->encode($image->getClientOriginalExtension(), 80);
-                $data = getimagesize($image);
-                $w = $data[0];
-                $h = $data[1];
-                $imageWebp = ImageManagerStatic::make($image);
-                if ($w >= 900 && $h >= 900) {
-                    $imageWebp = $imageWebp->resize(900, 900, function ($constraint) {
-                        $constraint->aspectRatio();
-                    });
+                if ($image->getClientOriginalExtension() != 'svg') {
+                    $jpg_image = ImageManagerStatic::make($image)->encode($image->getClientOriginalExtension(), 80);
+                    $data = getimagesize($image);
+                    $w = $data[0];
+                    $h = $data[1];
+                    $imageWebp = ImageManagerStatic::make($image);
+                    if ($w >= 900 && $h >= 900) {
+                        $imageWebp = $imageWebp->resize(900, 900, function ($constraint) {
+                            $constraint->aspectRatio();
+                        });
+                    }
+                    $imageWebp = $imageWebp->encode('webp', 60);
+                } else {
+                    $jpg_image = file_get_contents($image);
+                    $imageWebp = file_get_contents($image);
+                    $webp_filePath = 'items/' . Str::uuid() . time() . '.svg';
                 }
-                $imageWebp = $imageWebp->encode('webp', 60);
+
 
                 Storage::disk('s3')->put($filePath, $jpg_image);
                 Storage::disk('s3')->put($webp_filePath, $imageWebp);
