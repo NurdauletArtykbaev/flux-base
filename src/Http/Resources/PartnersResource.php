@@ -23,6 +23,7 @@ class PartnersResource extends JsonResource
             'image_url' => $this->image_url,
 //            'webp_url' => $this->webp_url,
             'logo_url' => $this->logo_url,
+            'variant' => $this->variant,
 //            'logo_webp_url' => $this->logo_webp_url,
         ];
     }

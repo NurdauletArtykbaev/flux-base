@@ -4,6 +4,7 @@ namespace Nurdaulet\FluxBase\Filament\Resources;
 
 use Nurdaulet\FluxBase\Facades\StringFormatter;
 use Nurdaulet\FluxBase\Filament\Resources\PartnerResource\Pages;
+use Nurdaulet\FluxBase\Helpers\PartnerHelper;
 use Nurdaulet\FluxBase\Models\Partner;
 use Filament\Forms;
 use Filament\Resources\Form;
@@ -64,6 +65,9 @@ class PartnerResource extends Resource
                     ->multiple()
                     ->preload()
                     ->relationship('cities', 'name', fn (Builder $query) => $query->active()),
+                Forms\Components\Select::make('variant')
+                    ->label('Вариант')
+                    ->options(PartnerHelper::getVariants()),
                 Forms\Components\Toggle::make('is_active')
                     ->label(trans('admin.is_active'))
             ]);

@@ -22,6 +22,7 @@ return new class extends Migration {
                 $table->integer('lft')->nullable();
 
                 $table->string('image')->nullable();
+                $table->string('variant')->nullable();
                 $table->string('webp')->nullable();
                 $table->string('logo')->nullable();
                 $table->string('logo_webp')->nullable();
@@ -56,6 +57,11 @@ return new class extends Migration {
         if (!Schema::hasColumn('partners', 'webp')) {
             Schema::table('partners', function (Blueprint $table) {
                 $table->string('webp')->nullable();
+            });
+        }
+        if (!Schema::hasColumn('partners', 'variant')) {
+            Schema::table('partners', function (Blueprint $table) {
+                 $table->string('variant')->nullable();
             });
         }
         if (!Schema::hasColumn('partners', 'logo')) {

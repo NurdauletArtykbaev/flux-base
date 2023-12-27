@@ -14,6 +14,7 @@ class Partner extends Model
         'image',
         'logo',
         'logo_webp',
+        'variant',
         'webp',
         'lft',
         'is_active'
