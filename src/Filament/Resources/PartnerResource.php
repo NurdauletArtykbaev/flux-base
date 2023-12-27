@@ -50,13 +50,11 @@ class PartnerResource extends Resource
                 Forms\Components\FileUpload::make('image')
                     ->image()
                     ->disk('s3')
-                    ->required()
                     ->visibility('public')
                     ->directory('partners')
                     ->label(trans('admin.image')),
                 Forms\Components\FileUpload::make('logo')
                     ->image()
-                    ->required()
                     ->disk('s3')
                     ->visibility('public')
                     ->directory('partners')
