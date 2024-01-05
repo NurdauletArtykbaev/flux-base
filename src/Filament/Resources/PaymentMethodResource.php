@@ -3,6 +3,7 @@
 namespace Nurdaulet\FluxBase\Filament\Resources;
 
 use Nurdaulet\FluxBase\Filament\Resources\PaymentMethodResource\Pages;
+use Nurdaulet\FluxBase\Helpers\PaymentHelper;
 use Nurdaulet\FluxBase\Models\PaymentMethod;
 use Filament\Forms;
 use Filament\Resources\Concerns\Translatable;
@@ -34,7 +35,8 @@ class PaymentMethodResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->label(trans('admin.name')),
-                Forms\Components\TextInput::make('slug')
+                Forms\Components\Select::make('slug')
+                    ->options(PaymentHelper::getSlugs())
                     ->label(trans('admin.slug')),
                 Forms\Components\FileUpload::make('image')
                     ->image()
@@ -42,7 +44,7 @@ class PaymentMethodResource extends Resource
                     ->visibility('public')
                     ->directory('payments')
                     ->label(trans('admin.image')),
-                Forms\Components\Toggle::make('status')
+                Forms\Components\Toggle::make('is_active')
                     ->label(trans('admin.status')),
             ]);
     }
@@ -57,7 +59,7 @@ class PaymentMethodResource extends Resource
                     ->height(150)
                     ->disk('s3')
                     ->label(trans('admin.image')),
-                Tables\Columns\BooleanColumn::make('status')->label(trans('admin.status')),
+                Tables\Columns\BooleanColumn::make('is_active')->label(trans('admin.status')),
                 Tables\Columns\TextColumn::make('slug')->label(trans('admin.slug')),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()->label(trans('admin.created_at')),

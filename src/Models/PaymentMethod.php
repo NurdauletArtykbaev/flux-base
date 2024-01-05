@@ -16,6 +16,7 @@ class PaymentMethod extends Model
     protected $appends = ['image_url'];
     public $translatable = ['name'];
 
+
     public function scopeActive($query)
     {
         return $query->where('is_active', 1);
