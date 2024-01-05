@@ -58,6 +58,7 @@ class PaymentMethodResource extends Resource
                     ->disk('s3')
                     ->label(trans('admin.image')),
                 Tables\Columns\BooleanColumn::make('status')->label(trans('admin.status')),
+                Tables\Columns\TextColumn::make('slug')->label(trans('admin.slug')),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()->label(trans('admin.created_at')),
                 Tables\Columns\TextColumn::make('updated_at')
