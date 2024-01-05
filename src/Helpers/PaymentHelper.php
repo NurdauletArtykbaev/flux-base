@@ -24,7 +24,7 @@ class PaymentHelper
     public static function getSlugs()
     {
         return [
-            null => null,
+            'draft' => trans('admin.payment_methods.draft'),
             'card' => trans('admin.payment_methods.card'),
             'cash' => trans('admin.payment_methods.cash'),
         ];
