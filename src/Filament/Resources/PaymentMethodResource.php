@@ -24,7 +24,7 @@ class PaymentMethodResource extends Resource
 
     public static function getTranslatableLocales(): array
     {
-        return config('flux-orders.languages');
+        return config('flux-base.languages');
     }
 
     public static function form(Form $form): Form
@@ -32,7 +32,10 @@ class PaymentMethodResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->required()
                     ->label(trans('admin.name')),
+                Forms\Components\TextInput::make('slug')
+                    ->label(trans('admin.slug')),
                 Forms\Components\FileUpload::make('image')
                     ->image()
                     ->disk('s3')
