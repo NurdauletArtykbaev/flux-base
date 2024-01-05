@@ -12,6 +12,7 @@ use Nurdaulet\FluxBase\Filament\Resources\LayoutResource;
 use Nurdaulet\FluxBase\Filament\Resources\LinkResource;
 use Nurdaulet\FluxBase\Filament\Resources\MobileAppResource;
 use Nurdaulet\FluxBase\Filament\Resources\PartnerResource;
+use Nurdaulet\FluxBase\Filament\Resources\PaymentMethodResource;
 use Nurdaulet\FluxBase\Filament\Resources\RatingResource;
 use Nurdaulet\FluxBase\Filament\Resources\RentTypeResource;
 use Nurdaulet\FluxBase\Filament\Resources\SupportResource;
@@ -34,6 +35,7 @@ class FluxBaseFilamentServiceProvider extends PluginServiceProvider
         PartnerResource::class,
         WebSiteConfigResource::class,
         LinkResource::class,
+        PaymentMethodResource::class,
     ];
     protected array $widgets = [
         WClickPhoneHistoryChart::class,

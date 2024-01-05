@@ -78,6 +78,7 @@ class FluxBaseServiceProvider extends ServiceProvider
             __DIR__ . '/../database/migrations/check_layouts_table.php.stub' => $this->getMigrationFileName('17','check_flux_base_layouts_table.php'),
             __DIR__ . '/../database/migrations/check_web_site_configs_table.php.stub' => $this->getMigrationFileName('18','check_flux_base_web_site_configs_table.php'),
             __DIR__ . '/../database/migrations/check_links_table.php.stub' => $this->getMigrationFileName('19','check_flux_base_links_table.php'),
+            __DIR__ . '/../database/migrations/check_payment_methods_table.php.stub' => $this->getMigrationFileName('20','check_flux_base_payment_methods_table.php'),
         ], 'flux-base-migrations');
     }
 

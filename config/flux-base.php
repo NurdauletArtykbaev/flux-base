@@ -20,6 +20,7 @@ return [
         'info_balance' => \Nurdaulet\FluxBase\Models\InfoBalance::class,
         'layout' => \Nurdaulet\FluxBase\Models\Layout::class,
         'rating' => \Nurdaulet\FluxBase\Models\Rating::class,
+        'payment_method' => \Nurdaulet\FluxBase\Models\PaymentMethod::class,
     ],
     'languages' => [
         'ru', 'en', 'kk'
