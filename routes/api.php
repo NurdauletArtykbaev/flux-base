@@ -27,7 +27,8 @@ Route::prefix('api')->group(function () {
 
     Route::get('cities', CityController::class);
     Route::get('links', LinkController::class);
-    Route::get('countries', CountryController::class);
+    Route::get('countries', [CountryController::class,'index']);
+    Route::get('countries/{id}/cities', [CountryController::class,'index']);
     Route::get('rent-types', RentTypeController::class);
     Route::get('layout', LayoutController::class);
     Route::get('banners', BannerController::class);
