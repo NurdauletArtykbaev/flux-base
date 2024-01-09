@@ -18,6 +18,8 @@ class SupportSaveRequest extends FormRequest
         return [
             'phone' => 'nullable',
             'file' => 'nullable|file|mimes:jpeg,avif,mov,mp4,png,gif,svg,pdf,doc,docx,ppt,pptx,heic',
+            'files' => 'array',
+            'files.*' => 'array|file|mimes:jpeg,avif,mov,mp4,png,gif,svg,pdf,doc,docx,ppt,pptx,heic',
             'description' => 'nullable',
         ];
     }

@@ -1,0 +1,56 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        if (Schema::hasTable('support_files')) {
+            $this->checkColumns();
+        } else {
+            Schema::create('support_files', function (Blueprint $table) {
+                $table->id();
+                $table->foreignId('support_id')->constrained('supports')->cascadeOnDelete();
+                $table->string('path')->nullable();
+                $table->softDeletes();
+            });
+        }
+    }
+
+    private function checkColumns()
+    {
+        if (!Schema::hasColumn('support_files', 'support_id')) {
+            Schema::table('support_files', function (Blueprint $table) {
+                $table->foreignId('support_id')->constrained('supports')->nullOnDelete();
+            });
+        }
+        if (!Schema::hasColumn('support_files', 'path')) {
+            Schema::table('support_files', function (Blueprint $table) {
+                $table->string('path')->nullable();
+            });
+        }
+
+        if (!Schema::hasColumn('support_files', 'deleted_at')) {
+            Schema::table('support_files', function (Blueprint $table) {
+                $table->softDeletes();
+            });
+        }
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('supports');
+    }
+};

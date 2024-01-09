@@ -14,7 +14,7 @@ class SupportController
 
     public function store(SupportSaveRequest $request)
     {
-        $this->supportService->create($request->validated(), $request->file('file'));
+        $this->supportService->create($request->validated());
         return response()->noContent();
     }
 }
