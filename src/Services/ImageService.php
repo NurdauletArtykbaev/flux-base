@@ -51,7 +51,12 @@ class ImageService
             }
         }
 
-        return $respData;
+        return array_map(function ($item) {
+            return [
+                'id' => $item->id,
+                'path' => $item->full_url
+            ];
+        }, $respData);
     }
 
 }

@@ -25,6 +25,7 @@ class PaymentHelper
     {
         return [
             'draft' => trans('admin.payment_methods.draft'),
+            'all' => trans('admin.payment_methods.all'),
             'card' => trans('admin.payment_methods.card'),
             'cash' => trans('admin.payment_methods.cash'),
         ];
