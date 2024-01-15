@@ -16,6 +16,7 @@ use Nurdaulet\FluxBase\Filament\Resources\PaymentMethodResource;
 use Nurdaulet\FluxBase\Filament\Resources\RatingResource;
 use Nurdaulet\FluxBase\Filament\Resources\RentTypeResource;
 use Nurdaulet\FluxBase\Filament\Resources\SupportResource;
+use Nurdaulet\FluxBase\Filament\Resources\TypeOrganizationResource;
 use Nurdaulet\FluxBase\Filament\Resources\WebSiteConfigResource;
 use Nurdaulet\FluxBase\Filament\Widgets\WClickPhoneHistoryChart;
 use Spatie\LaravelPackageTools\Package;
@@ -28,6 +29,7 @@ class FluxBaseFilamentServiceProvider extends PluginServiceProvider
         CityResource::class,
         RatingResource::class,
         ComplaintReasonResource::class,
+        TypeOrganizationResource::class,
         RentTypeResource::class,
         LayoutResource::class,
         MobileAppResource::class,
@@ -38,7 +40,7 @@ class FluxBaseFilamentServiceProvider extends PluginServiceProvider
         PaymentMethodResource::class,
     ];
     protected array $widgets = [
-        WClickPhoneHistoryChart::class,
+//        WClickPhoneHistoryChart::class,
     ];
 
     public function configurePackage(Package $package): void

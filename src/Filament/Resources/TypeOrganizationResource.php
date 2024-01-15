@@ -37,6 +37,10 @@ class TypeOrganizationResource extends Resource
                     ->required()
                     ->maxLength(255)
                     ->label(trans('admin.name')),
+                Forms\Components\TextInput::make('slug')
+                    ->required()
+                    ->maxLength(255)
+                    ->label(trans('admin.slug')),
                 Forms\Components\Toggle::make('is_active')
                     ->required()
                     ->label(trans('admin.is_active')),
@@ -48,6 +52,7 @@ class TypeOrganizationResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')->label(trans('admin.name')),
+                Tables\Columns\TextColumn::make('slug')->label(trans('admin.slug')),
                 Tables\Columns\BooleanColumn::make('is_active')->label(trans('admin.is_active')),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
