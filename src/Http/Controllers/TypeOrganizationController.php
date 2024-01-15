@@ -13,7 +13,7 @@ class TypeOrganizationController
     {
         $lang = app()->getLocale();
         return Cache::remember("type-organizations-new-$lang", 269746, function () {
-            $orgs = config('flux-base.models.type_organization')::select('id','name')->active()->get();
+            $orgs = config('flux-base.models.type_organization')::select('id','name', 'slug')->active()->get();
             return TypeOrganizationsResource::collection($orgs);
         });
     }
