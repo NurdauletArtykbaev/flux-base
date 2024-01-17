@@ -14,6 +14,7 @@ use Filament\Navigation\NavigationGroup;
 use Illuminate\Support\ServiceProvider;
 use Nurdaulet\FluxBase\Models\City;
 use Nurdaulet\FluxBase\Observers\CityObserver;
+use Nurdaulet\FluxBase\Services\CityService;
 use Nurdaulet\FluxBase\Services\ReviewService;
 
 class FluxBaseServiceProvider extends ServiceProvider
@@ -40,6 +41,7 @@ class FluxBaseServiceProvider extends ServiceProvider
         $this->app->bind('textConverter', TextConverterHelper::class);
         $this->app->bind('stringFormatter', StringFormatterHelper::class);
         $this->app->bind('fluxBaseReview', ReviewService::class);
+        $this->app->bind('fluxBaseCity', CityService::class);
     }
 
     protected function publishConfig()

@@ -19,7 +19,9 @@
     "staudenmeir/laravel-adjacency-list": "^1.0",
     "filament/filament": "^2.16",
     "filament/spatie-laravel-translatable-plugin": "^2.17",
-    "stevebauman/location": "*"
+    "stevebauman/location": "*",
+    "toin0u/geocoder-laravel": "^4.6",
+    "symfony/http-client": "^6.4"
   },
   "require-dev": {
     "orchestra/testbench": "^8.11"
@@ -30,6 +32,11 @@
           "TextConverter": "Nurdaulet\\FluxBase\\Facades\\TextConverter",
           "StringFormatter": "Nurdaulet\\FluxBase\\Facades\\StringFormatter"
       }
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "php-http/discovery": true
     }
   }
 }

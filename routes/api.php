@@ -25,7 +25,7 @@ Route::prefix('api')->group(function () {
         Route::get('payment', PaymentMethodController::class);
     });
 
-    Route::get('cities', CityController::class);
+    Route::get('cities', [CityController::class,'index']);
     Route::get('links', LinkController::class);
     Route::get('countries', [CountryController::class,'index']);
     Route::get('countries/{id}/cities', [CountryController::class,'cities']);

@@ -13,7 +13,7 @@ class CityController
     {
     }
 
-    public function __invoke(Request $request): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+    public function index(Request $request): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
     {
         $cities = $this->cityService->get();
         $currentCityId = $this->cityService->getCurrentCityId($cities);

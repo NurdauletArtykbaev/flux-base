@@ -9,6 +9,7 @@
 ``` bash
 php artisan vendor:publish --provider="Nurdaulet\FluxBase\FluxBaseServiceProvider"
 php artisan vendor:publish --tag flux-base-config
+
 ```
 
 Вы можете самостоятельно добавить поставщика услуг административной панели Filament в файл config/app.php.
@@ -19,6 +20,12 @@ php artisan vendor:publish --tag flux-base-config
 ];
 ```
 
+Geocoder
+``` bash
+php artisan vendor:publish --provider="Geocoder\Laravel\Providers\GeocoderService"
+
+GOOGLE_MAPS_API_KEY=AIzaSyAWRsRGOFbTXRlLHDOSudkerLjUtBfElUt
+```
 
 По умолчанию все разделы будут добавлены, вы также можете самостоятельно добавить разделы в админ-панели Filament в
 файле AppServiceProvider.php.

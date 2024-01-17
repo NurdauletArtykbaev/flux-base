@@ -33,4 +33,9 @@ class CityService
         return $currentCityId;
     }
 
+    public function getCityFromReverseGeo($lat, $lng)
+    {
+        return app('geocoder')->reverse($lat,$lng)->get();
+    }
+
 }
