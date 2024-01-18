@@ -20,8 +20,9 @@
     "filament/filament": "^2.16",
     "filament/spatie-laravel-translatable-plugin": "^2.17",
     "stevebauman/location": "*",
-    "toin0u/geocoder-laravel": "^4.6",
-    "symfony/http-client": "^6.4"
+    "symfony/http-client": "^6.4",
+    "geocoder-php/yandex-provider": "^4.5",
+    "psr/http-client": "^1.0"
   },
   "require-dev": {
     "orchestra/testbench": "^8.11"
