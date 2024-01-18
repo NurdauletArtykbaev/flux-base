@@ -26,6 +26,7 @@ return [
         'ru', 'en', 'kk'
     ],
     'options' => [
+        'yandex_maps_api_key' => env('YANDEX_MAPS_API_KEY'),
         'support_email' => 'info@mail.ru',
         'use_filament_admin_panel' => true,
         'use_list_items_count' => false,
