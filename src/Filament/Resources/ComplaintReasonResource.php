@@ -37,6 +37,9 @@ class ComplaintReasonResource extends Resource
                 Forms\Components\Textarea::make('name')
                     ->maxLength(65535)
                     ->label(trans('admin.name')),
+                Forms\Components\Textarea::make('type')
+                    ->maxLength(65535)
+                    ->label(trans('admin.type')),
                 Forms\Components\Toggle::make('status')
                     ->required()
                     ->label(trans('admin.status')),
@@ -75,13 +78,6 @@ class ComplaintReasonResource extends Resource
             ])
             ->reorderable('sort')
             ->defaultSort('sort');
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
     }
 
     public static function getPages(): array

@@ -5,11 +5,12 @@ namespace Nurdaulet\FluxBase\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Nurdaulet\FluxBase\Traits\HasFilters;
 use Spatie\Translatable\HasTranslations;
 
 class ComplaintReason extends Model
 {
-    use HasFactory, HasTranslations, SoftDeletes;
+    use HasFactory, HasTranslations, SoftDeletes, HasFilters;
 
     protected $table = 'complaint_reasons';
     protected $guarded = ['id'];
