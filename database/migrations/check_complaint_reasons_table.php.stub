@@ -18,6 +18,7 @@ return new class extends Migration {
             Schema::create('complaint_reasons', function (Blueprint $table) {
                 $table->id();
                 $table->text('name')->nullable();
+                $table->string('type')->nullable();
                 $table->tinyInteger('status')->default(1);
                 $table->string('sort')->nullable();
                 $table->boolean('is_for_user')->default(false);
@@ -34,6 +35,13 @@ return new class extends Migration {
                 $table->text('name')->nullable();
             });
         }
+
+        if (!Schema::hasColumn('complaint_reasons', 'type')) {
+            Schema::table('complaint_reasons', function (Blueprint $table) {
+                 $table->string('type')->nullable();
+            });
+        }
+
         if (!Schema::hasColumn('complaint_reasons', 'status')) {
             Schema::table('complaint_reasons', function (Blueprint $table) {
                 $table->tinyInteger('status')->default(1);

@@ -1,4 +1,7 @@
 <?php
+
+use Nurdaulet\FluxBase\Filters\ComplaintReasonFilter;
+
 return [
 
     'models' => [
@@ -24,6 +27,9 @@ return [
     ],
     'languages' => [
         'ru', 'en', 'kk'
+    ],
+    'filters' => [
+        'complaint_reason' => ComplaintReasonFilter::class
     ],
     'options' => [
         'yandex_maps_api_key' => env('YANDEX_MAPS_API_KEY'),

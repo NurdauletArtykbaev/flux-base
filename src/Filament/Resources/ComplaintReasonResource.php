@@ -50,7 +50,10 @@ class ComplaintReasonResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')->label(trans('admin.name')),
+                Tables\Columns\TextColumn::make('name')
+                    ->label(trans('admin.name')),
+                Tables\Columns\TextColumn::make('type')
+                    ->label(trans('admin.type')),
                 Tables\Columns\IconColumn::make('status')
                     ->boolean()->label(trans('admin.status')),
                 Tables\Columns\IconColumn::make('is_for_user')
