@@ -41,7 +41,7 @@ class CityService
     {
         [$resCountry, $resCity] = $this->getCountryAndCityFromGeocoder($lat, $lng);
         if (empty($resCity)) {
-            throw new ErrorException('Город не найден',400);
+            return $this->findClosestCity($lat, $lng);
         }
         $city = $this->cityRepository->findByName($resCity);
 
@@ -54,6 +54,31 @@ class CityService
             ]);
         }
         return  $city;
+    }
+
+    private function findClosestCity($lat, $lng)
+    {
+        $minDistance = INF;
+        $closestCity = null;
+
+        $cities = $this->get();
+        foreach ($cities as $city) {
+            $distance = $this->calculateDistance($lat, $lng, $city->latitude, $city->longitude);
+            if ($distance < $minDistance) {
+                $minDistance = $distance;
+                $closestCity = $city;
+            }
+        }
+        return $closestCity;
+    }
+
+    private function calculateDistance($lat1, $lon1, $lat2, $lon2) {
+        $earthRadius = 6371; // in kilometers
+        $dLat = deg2rad($lat2 - $lat1);
+        $dLon = deg2rad($lon2 - $lon1);
+        $a = sin($dLat / 2) * sin($dLat / 2) + cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * sin($dLon / 2) * sin($dLon / 2);
+        $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
+        return $earthRadius * $c;
     }
 
     private function getCountryAndCityFromGeocoder($lat, $lng)
