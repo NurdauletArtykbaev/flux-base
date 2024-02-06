@@ -63,7 +63,7 @@ class CityService
 
         $cities = $this->get();
         foreach ($cities as $city) {
-            $distance = $this->calculateDistance($lat, $lng, $city->latitude, $city->longitude);
+            $distance = $this->calculateDistance($lat, $lng, $city->lat, $city->lng);
             if ($distance < $minDistance) {
                 $minDistance = $distance;
                 $closestCity = $city;
