@@ -7,15 +7,12 @@ use Geocoder\Query\ReverseQuery;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 use Nurdaulet\FluxBase\Helpers\CityHelper;
-use Nurdaulet\FluxBase\Models\City;
-use Nurdaulet\FluxBase\Models\Country;
 use Nurdaulet\FluxBase\Repositories\CityRepository;
-use Psy\Exception\ErrorException;
 use Stevebauman\Location\Facades\Location;
 
 class CityService
 {
-    public function __construct(private readonly CityRepository $cityRepository)
+    public function __construct(private CityRepository $cityRepository)
     {
     }
 
@@ -53,7 +50,7 @@ class CityService
                 'is_active' => true,
             ]);
         }
-        return  $city;
+        return $city;
     }
 
     private function findClosestCity($lat, $lng)
@@ -63,7 +60,7 @@ class CityService
 
         $cities = $this->get();
         foreach ($cities as $city) {
-            $distance = $this->calculateDistance($lat, $lng, $city->lat, $city->lng);
+            $distance = $this->calculateDistance((double)$lat, (double)$lng, (double)Str::replace(',', '.', $city->lat), (double)Str::replace(',', '.', $city->lng));
             if ($distance < $minDistance) {
                 $minDistance = $distance;
                 $closestCity = $city;
@@ -72,7 +69,8 @@ class CityService
         return $closestCity;
     }
 
-    private function calculateDistance($lat1, $lon1, $lat2, $lon2) {
+    private function calculateDistance($lat1, $lon1, $lat2, $lon2)
+    {
         $earthRadius = 6371; // in kilometers
         $dLat = deg2rad($lat2 - $lat1);
         $dLon = deg2rad($lon2 - $lon1);
@@ -89,6 +87,6 @@ class CityService
         $formatter = new \Geocoder\Formatter\StringFormatter();
         $result = $formatter->format($result->first(), '%L,%C');
         [$resCity, $resCountry] = explode(',', $result);
-        return [ $resCountry, $resCity];
+        return [$resCountry, $resCity];
     }
 }
