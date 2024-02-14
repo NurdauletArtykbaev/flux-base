@@ -53,22 +53,7 @@ class SearchSynonymResource extends Resource
                     ->label('Экпорт')
                     ->action(function () {
                         if (app()->isProduction()) {
-
-
-                            $synonyms = SearchSynonym::get();
-                            $synonyms = $synonyms->map(function ($item) {
-                                $itemSynonyms = explode(',', $item->synonyms);
-                                array_unshift($itemSynonyms, $item->word);
-                                return [
-                                    "objectID" => 'syn-' . time() . $item->id . '-' . rand(10, 100),
-                                    "type" => "synonym",
-                                    "synonyms" => $itemSynonyms
-                                ];
-                            });
-                        Search::saveSynonym($synonyms->toArray());
-
-
-//                        $chunks->all();
+                            Search::updateSynonym();
                         }
 
                         Notification::make()

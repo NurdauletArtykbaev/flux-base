@@ -32,9 +32,6 @@ class MeiliService implements SearchEngineContract
     public function getTopSearches($index)
     {
         return [];
-//        $this->client->index($index)->updateSynonyms([
-//            $word => $synonyms,
-//        ]);
     }
 
     public function delete($index, $id)
@@ -44,14 +41,11 @@ class MeiliService implements SearchEngineContract
 
     private function prepareSynonyms($synonyms)
     {
-        return $synonyms->map(function ($item) {
-            $itemSynonyms = explode(',', $item->synonyms);
-            array_unshift($itemSynonyms, $item->word);
-            return [
-                "objectID" => 'syn-' . time() . $item->id . '-' . rand(10, 100),
-                "type" => "synonym",
-                "synonyms" => $itemSynonyms
-            ];
-        });
+        $data = [];
+        foreach ($synonyms as $synonym) {
+            $itemSynonyms = explode(',', $synonym->synonyms);
+            $data[$synonym->word] = $itemSynonyms;
+        }
+        return $data;
     }
 }

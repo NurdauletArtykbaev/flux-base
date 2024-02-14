@@ -8,7 +8,7 @@ use Nurdaulet\FluxBase\Services\Search\Contracts\SearchEngineContract;
 class SearchService
 {
 
-    public function __construct(private SearchEngineContract $engine, $index)
+    public function __construct(private SearchEngineContract $engine)
     {
     }
 
