@@ -16,6 +16,10 @@ use Nurdaulet\FluxBase\Models\City;
 use Nurdaulet\FluxBase\Observers\CityObserver;
 use Nurdaulet\FluxBase\Services\CityService;
 use Nurdaulet\FluxBase\Services\ReviewService;
+use Nurdaulet\FluxBase\Services\Search\Contracts\SearchEngineContract;
+use Nurdaulet\FluxBase\Services\Search\Engines\Algolia\AlgoliaService;
+use Nurdaulet\FluxBase\Services\Search\Engines\Meili\MeiliService;
+use Nurdaulet\FluxBase\Services\Search\SearchService;
 
 class FluxBaseServiceProvider extends ServiceProvider
 {
@@ -42,6 +46,18 @@ class FluxBaseServiceProvider extends ServiceProvider
         $this->app->bind('stringFormatter', StringFormatterHelper::class);
         $this->app->bind('fluxBaseReview', ReviewService::class);
         $this->app->bind('fluxBaseCity', CityService::class);
+
+        $this->app->bind(SearchEngineContract::class, function ($app) {
+            $engine = config('scout.driver', 'algolia');
+
+            if ($engine === 'algolia') {
+                return new AlgoliaService();
+            } elseif ($engine === 'meilisearch') {
+                return new MeiliService();
+            }
+            return new AlgoliaService();
+        });
+        $this->app->bind('fluxBaseSearch', SearchService::class);
     }
 
     protected function publishConfig()
@@ -82,6 +98,8 @@ class FluxBaseServiceProvider extends ServiceProvider
             __DIR__ . '/../database/migrations/check_web_site_configs_table.php.stub' => $this->getMigrationFileName('19','check_flux_base_web_site_configs_table.php'),
             __DIR__ . '/../database/migrations/check_links_table.php.stub' => $this->getMigrationFileName('20','check_flux_base_links_table.php'),
             __DIR__ . '/../database/migrations/check_payment_methods_table.php.stub' => $this->getMigrationFileName('21','check_flux_base_payment_methods_table.php'),
+            __DIR__ . '/../database/migrations/check_search_synonyms_table.php.stub' => $this->getMigrationFileName('22','check_flux_base_search_synonyms_table.php'),
+            __DIR__ . '/../database/migrations/check_banned_top_search_words_table.php.stub' => $this->getMigrationFileName('22','check_flux_base_banned_top_search_words_table.php'),
         ], 'flux-base-migrations');
     }
 

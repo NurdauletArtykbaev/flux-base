@@ -24,6 +24,8 @@ return [
         'layout' => \Nurdaulet\FluxBase\Models\Layout::class,
         'rating' => \Nurdaulet\FluxBase\Models\Rating::class,
         'payment_method' => \Nurdaulet\FluxBase\Models\PaymentMethod::class,
+        'search_synonym' => \Nurdaulet\FluxBase\Models\SearchSynonym::class,
+        'banned_top_search_word' => \Nurdaulet\FluxBase\Models\BannedTopSearchWord::class,
     ],
     'languages' => [
         'ru', 'en', 'kk'

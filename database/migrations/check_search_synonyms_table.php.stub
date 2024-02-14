@@ -1,0 +1,60 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Str;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        if (Schema::hasTable('search_synonyms')) {
+            $this->checkColumns();
+        } else {
+
+            Schema::create('search_synonyms', function (Blueprint $table) {
+                $table->id();
+                $table->string('word')->nullable();
+                $table->string('uuid')->nullable();
+                $table->text('synonyms')->nullable();
+                $table->timestamps();
+            });
+        }
+    }
+
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('search_synonyms');
+    }
+
+    private function checkColumns()
+    {
+        if (!Schema::hasColumn('search_synonyms', 'word')) {
+            Schema::table('search_synonyms', function (Blueprint $table) {
+                $table->string('word')->nullable();
+            });
+        }
+        if (!Schema::hasColumn('search_synonyms', 'uuid')) {
+            Schema::table('search_synonyms', function (Blueprint $table) {
+                $table->string('uuid')->nullable();
+            });
+        }
+        if (!Schema::hasColumn('search_synonyms', 'synonyms')) {
+            Schema::table('search_synonyms', function (Blueprint $table) {
+                $table->text('synonyms')->nullable();
+            });
+        }
+    }
+};

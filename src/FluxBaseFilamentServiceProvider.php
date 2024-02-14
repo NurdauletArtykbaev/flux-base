@@ -4,6 +4,7 @@ namespace Nurdaulet\FluxBase;
 
 
 use Filament\PluginServiceProvider;
+use Nurdaulet\FluxBase\Filament\Resources\BannedTopSearchWordResource;
 use Nurdaulet\FluxBase\Filament\Resources\BannerResource;
 use Nurdaulet\FluxBase\Filament\Resources\CityResource;
 use Nurdaulet\FluxBase\Filament\Resources\ComplaintReasonResource;
@@ -15,6 +16,7 @@ use Nurdaulet\FluxBase\Filament\Resources\PartnerResource;
 use Nurdaulet\FluxBase\Filament\Resources\PaymentMethodResource;
 use Nurdaulet\FluxBase\Filament\Resources\RatingResource;
 use Nurdaulet\FluxBase\Filament\Resources\RentTypeResource;
+use Nurdaulet\FluxBase\Filament\Resources\SearchSynonymResource;
 use Nurdaulet\FluxBase\Filament\Resources\SupportResource;
 use Nurdaulet\FluxBase\Filament\Resources\TypeOrganizationResource;
 use Nurdaulet\FluxBase\Filament\Resources\WebSiteConfigResource;
@@ -38,6 +40,8 @@ class FluxBaseFilamentServiceProvider extends PluginServiceProvider
         WebSiteConfigResource::class,
         LinkResource::class,
         PaymentMethodResource::class,
+        SearchSynonymResource::class,
+        BannedTopSearchWordResource::class,
     ];
     protected array $widgets = [
 //        WClickPhoneHistoryChart::class,
