@@ -55,7 +55,6 @@ class SearchSynonymResource extends Resource
                         if (app()->isProduction()) {
                             Search::updateSynonym();
                         }
-
                         Notification::make()
                             ->title('Успешно обнавлено')
                             ->success()

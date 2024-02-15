@@ -44,8 +44,9 @@ class MeiliService implements SearchEngineContract
         $data = [];
         foreach ($synonyms as $synonym) {
             $itemSynonyms = explode(',', $synonym->synonyms);
+            array_unshift($itemSynonyms, $synonym->word);
             $data[$synonym->word] = $itemSynonyms;
         }
-        return $data;
+        return  $data;
     }
 }
