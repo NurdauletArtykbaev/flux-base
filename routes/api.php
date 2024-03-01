@@ -1,23 +1,24 @@
 <?php
 
-use Nurdaulet\FluxBase\Http\Controllers\BannerController;
-use Nurdaulet\FluxBase\Http\Controllers\CityController;
-use Nurdaulet\FluxBase\Http\Controllers\ComplaintReasonController;
-use Nurdaulet\FluxBase\Http\Controllers\CountryController;
-use Nurdaulet\FluxBase\Http\Controllers\LinkController;
-use Nurdaulet\FluxBase\Http\Controllers\PaymentMethodController;
-use Nurdaulet\FluxBase\Http\Controllers\RatingController;
-use Nurdaulet\FluxBase\Http\Controllers\MobileAppController;
-use Nurdaulet\FluxBase\Http\Controllers\RentTypeController;
-use Nurdaulet\FluxBase\Http\Controllers\TempImageController;
-use Nurdaulet\FluxBase\Http\Controllers\TypeOrganizationController;
-use Nurdaulet\FluxBase\Http\Controllers\InfoBalanceController;
-use Nurdaulet\FluxBase\Http\Controllers\SupportController;
-use Nurdaulet\FluxBase\Http\Controllers\ClickHistoryController;
-use Nurdaulet\FluxBase\Http\Controllers\PartnerController;
-use Nurdaulet\FluxBase\Http\Controllers\LayoutController;
+use Nurdaulet\FluxBase\Http\Controllers\Api\BannerController;
+use Nurdaulet\FluxBase\Http\Controllers\Api\CityController;
+use Nurdaulet\FluxBase\Http\Controllers\Api\ComplaintReasonController;
+use Nurdaulet\FluxBase\Http\Controllers\Api\CountryController;
+use Nurdaulet\FluxBase\Http\Controllers\Api\LinkController;
+use Nurdaulet\FluxBase\Http\Controllers\Api\PaymentMethodController;
+use Nurdaulet\FluxBase\Http\Controllers\Api\RatingController;
+use Nurdaulet\FluxBase\Http\Controllers\Api\MobileAppController;
+use Nurdaulet\FluxBase\Http\Controllers\Api\RentTypeController;
+use Nurdaulet\FluxBase\Http\Controllers\Api\TempImageController;
+use Nurdaulet\FluxBase\Http\Controllers\Api\TypeOrganizationController;
+use Nurdaulet\FluxBase\Http\Controllers\Api\InfoBalanceController;
+use Nurdaulet\FluxBase\Http\Controllers\Api\SupportController;
+use Nurdaulet\FluxBase\Http\Controllers\Api\ClickHistoryController;
+use Nurdaulet\FluxBase\Http\Controllers\Api\PartnerController;
+use Nurdaulet\FluxBase\Http\Controllers\Api\LayoutController;
 use Illuminate\Support\Facades\Route;
-use Nurdaulet\FluxBase\Http\Controllers\WebSiteConfigController;
+use Nurdaulet\FluxBase\Http\Controllers\Api\WebSiteConfigController;
+use Nurdaulet\FluxBase\Http\Controllers\Web\FileUploadController;
 
 
 Route::prefix('api')->group(function () {
@@ -47,3 +48,6 @@ Route::prefix('api')->group(function () {
     Route::post('web-site-config', [WebSiteConfigController::class,'store']);
 
 });
+Route::post('/livewire/upload-file', [FileUploadController::class, 'handle'])
+    ->name('livewire.upload-file')
+    ->middleware('web');

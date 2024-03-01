@@ -1,6 +1,6 @@
 <?php
 
-namespace Nurdaulet\FluxBase\Http\Controllers;
+namespace Nurdaulet\FluxBase\Http\Controllers\Api;
 
 use Nurdaulet\FluxBase\Http\Resources\TypeOrganizationsResource;
 use Illuminate\Http\Request;

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Nurdaulet\FluxBase\Http\Controllers;
+namespace Nurdaulet\FluxBase\Http\Controllers\Api;
 
 use Illuminate\Support\Facades\Cache;
 use Nurdaulet\FluxBase\Http\Resources\InfoBalancesResource;
