@@ -15,6 +15,8 @@ return new class extends Migration {
         } else {
             Schema::create('web_site_configs', function (Blueprint $table) {
                 $table->id();
+                $table->string('logo_primary')->nullable();
+                $table->string('logo_secondary')->nullable();
                 $table->longText('config')->nullable();
                 $table->timestamps();
             });
@@ -26,6 +28,16 @@ return new class extends Migration {
         if (!Schema::hasColumn('web_site_configs', 'config')) {
             Schema::table('web_site_configs', function (Blueprint $table) {
                 $table->longText('config')->nullable();
+            });
+        }
+        if (!Schema::hasColumn('web_site_configs', 'logo_primary')) {
+            Schema::table('web_site_configs', function (Blueprint $table) {
+                $table->string('logo_primary')->nullable();
+            });
+        }
+        if (!Schema::hasColumn('web_site_configs', 'logo_secondary')) {
+            Schema::table('web_site_configs', function (Blueprint $table) {
+                $table->string('logo_secondary')->nullable();
             });
         }
     }

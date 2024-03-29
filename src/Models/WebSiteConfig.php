@@ -10,7 +10,10 @@ class WebSiteConfig extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'config'
+        'config',
+        'logo_primary',
+        'logo_secondary',
+
     ];
     protected $casts = [
         'config' => 'array'
