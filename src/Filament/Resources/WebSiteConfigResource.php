@@ -32,10 +32,12 @@ class WebSiteConfigResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\KeyValue::make('config')
-                    ->keyPlaceholder('Ключ')
-                    ->label('Конфиг')
-                    ->valuePlaceholder('Значения'),
+                Forms\Components\Textarea::make('config')
+                    ->label('Конфиг'),
+//                Forms\Components\KeyValue::make('config')
+//                    ->keyPlaceholder('Ключ')
+//                    ->label('Конфиг')
+//                    ->valuePlaceholder('Значения'),
                 Forms\Components\FileUpload::make('logo_primary')
                     ->image()
                     ->disk('s3')
@@ -48,16 +50,6 @@ class WebSiteConfigResource extends Resource
                     ->visibility('public')
                     ->directory('logo')
                     ->label(trans('admin.logo_secondary')),
-//                Forms\Components\TextInput::make('value')
-//                    ->required()
-//                    ->label(trans('admin.value')),
-//                Forms\Components\TextInput::make('description')
-//                    ->required()
-//                    ->label(trans('admin.description')),
-//                Forms\Components\Toggle::make('is_active')
-//                    ->required()
-//                    ->label(trans('admin.is_active'))
-//                    ->inline(),
             ]);
     }
 
@@ -67,6 +59,7 @@ class WebSiteConfigResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('config')
                     ->label(trans('admin.value'))
+                    ->limit(150)
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('logo_primary')
                     ->width(150)

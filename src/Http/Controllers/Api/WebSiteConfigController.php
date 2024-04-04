@@ -24,15 +24,19 @@ class WebSiteConfigController
 
     private function prepareData($config)
     {
+        $configData = null;
+        try {
+            $configData = $config->config ? json_decode($config->config) : null;
+        } catch (\Exception $exception) {
+
+        }
+
         return [
             "logo" => [
-                "logo" => [
-                    'primary' => $config->logo_primary ? Storage::disk('s3')->url($config->logo_primary) : null,
-                    'secondary' => $config->logo_secondary ? Storage::disk('s3')->url($config->logo_secondary) : null,
-
-                ],
+                'primary' => $config->logo_primary ? Storage::disk('s3')->url($config->logo_primary) : null,
+                'secondary' => $config->logo_secondary ? Storage::disk('s3')->url($config->logo_secondary) : null,
             ],
-            "config" => $config->config
+            "config" => $configData
         ];
     }
 }

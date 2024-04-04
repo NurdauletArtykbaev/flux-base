@@ -16,6 +16,6 @@ class WebSiteConfig extends Model
 
     ];
     protected $casts = [
-        'config' => 'array'
+//        'config' => 'array'
     ];
 }
