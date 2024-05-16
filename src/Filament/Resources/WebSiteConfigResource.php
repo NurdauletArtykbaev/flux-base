@@ -34,10 +34,60 @@ class WebSiteConfigResource extends Resource
             ->schema([
                 Forms\Components\Textarea::make('config')
                     ->label('Конфиг'),
-//                Forms\Components\KeyValue::make('config')
-//                    ->keyPlaceholder('Ключ')
-//                    ->label('Конфиг')
-//                    ->valuePlaceholder('Значения'),
+                Forms\Components\Select::make('font')
+                    ->options([ 'Advent Pro',
+                        'Alegreya',
+                        'Alumni Sans',
+                        'Bitter',
+                        'Commissioner',
+                        'Exo 2',
+                        'Fira Sans',
+                        'Fira Sans Condensed',
+                        'Fira Sans Extra Condensed',
+                        'Geologica',
+                        'Golos Text',
+                        'Handjet',
+                        'Hanken Grotesk',
+                        'Inter',
+                        'Inter Tight',
+                        'Literata',
+                        'Montserrat',
+                        'Montserrat Alternates',
+                        'Mulish',
+                        'Murecho',
+                        'Noto Sans',
+                        'Noto Sans Display',
+                        'Noto Sans Mono',
+                        'Noto Serif',
+                        'Noto Serif Display',
+                        'Nunito',
+                        'Nunito Sans',
+                        'Onest',
+                        'Overpass',
+                        'Phudu',
+                        'Piazzolla',
+                        'Playfair',
+                        'Raleway',
+                        'Recursive',
+                        'Roboto Condensed',
+                        'Roboto Serif',
+                        'Roboto Slab',
+                        'Rubik',
+                        'Sofia Sans',
+                        'Sofia Sans Condensed',
+                        'Sofia Sans Extra Condensed',
+                        'Sofia Sans Semi Condensed',
+                        'Source Code Pro',
+                        'Source Sans 3',
+                        'Source Serif 4',
+                        'Tektur',
+                        'Unbounded',
+                        'Vollkorn',
+                        'Ysabeau',
+                        'Ysabeau Infant',
+                        'Ysabeau Office',
+                        'Ysabeau SC'])
+                    ->label('Шрифт'),
                 Forms\Components\FileUpload::make('logo_primary')
                     ->image()
                     ->disk('s3')
@@ -50,6 +100,11 @@ class WebSiteConfigResource extends Resource
                     ->visibility('public')
                     ->directory('logo')
                     ->label(trans('admin.logo_secondary')),
+                Forms\Components\FileUpload::make('design')
+                    ->disk('s3')
+                    ->visibility('public')
+                    ->directory('design')
+                    ->label(trans('admin.design_token')),
             ]);
     }
 

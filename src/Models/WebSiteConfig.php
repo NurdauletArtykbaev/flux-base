@@ -13,6 +13,8 @@ class WebSiteConfig extends Model
         'config',
         'logo_primary',
         'logo_secondary',
+        'font',
+        'design',
 
     ];
     protected $casts = [

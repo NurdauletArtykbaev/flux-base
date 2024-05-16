@@ -36,6 +36,8 @@ class WebSiteConfigController
                 'primary' => $config->logo_primary ? Storage::disk('s3')->url($config->logo_primary) : null,
                 'secondary' => $config->logo_secondary ? Storage::disk('s3')->url($config->logo_secondary) : null,
             ],
+            "font" => $config->font,
+            "design" => $config->design ? Storage::disk('s3')->url($config->design) : null,
             "config" => $configData
         ];
     }
