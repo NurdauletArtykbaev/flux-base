@@ -17,6 +17,7 @@ return new class extends Migration {
                 $table->id();
                 $table->string('logo_primary')->nullable();
                 $table->string('logo_secondary')->nullable();
+                $table->string('')->nullable();
                 $table->longText('config')->nullable();
                 $table->timestamps();
             });

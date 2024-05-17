@@ -25,10 +25,7 @@ class ComplaintReasonResource extends Resource
         return config('flux-base.languages');
     }
 
-    protected function getTableReorderColumn(): ?string
-    {
-        return 'sort';
-    }
+
 
     public static function form(Form $form): Form
     {

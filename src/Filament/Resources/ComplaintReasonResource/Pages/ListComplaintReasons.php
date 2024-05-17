@@ -11,6 +11,11 @@ class ListComplaintReasons extends ListRecords
     use ListRecords\Concerns\Translatable;
     protected static string $resource = ComplaintReasonResource::class;
 
+    protected function getTableReorderColumn(): ?string
+    {
+        return 'sort';
+    }
+
     protected function getActions(): array
     {
         return [
